@@ -25,6 +25,7 @@ for dir in ${DIRS}; do
   { cd "$dir" && \
     mkdir ${MEDIA}/"$(basename "$dir")".tmp && \
     $script_dir/7za.expect ${PASSWORD} a -p ${OPTS} -w${TMPDIR} ${MEDIA}/"$(basename "$dir")".tmp/"$(basename "$dir")".7z . && \
+    $script_dir/7za.expect ${PASSWORD} t ${MEDIA}/"$(basename "$dir")".tmp/"$(basename "$dir")".7z.001 && \
     rm -rf ${MEDIA}/"$(basename "$dir")" && \
     mv ${MEDIA}/"$(basename "$dir")".tmp ${MEDIA}/"$(basename "$dir")"; } || exit $?
 done
