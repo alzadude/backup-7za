@@ -14,8 +14,16 @@ expect {
   }
   "Verify password (will not be echoed) :" {
     send "$password\r"
+    exp_continue
   }
+  eof
 }
 
-expect eof
+# https://stackoverflow.com/questions/23614039/how-to-get-the-exit-code-of-spawned-process-in-expect-shell-script
+lassign [wait] pid spawnid os_error_flag value
+
+puts "\n"
+
 close $fp
+
+exit $value
