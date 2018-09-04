@@ -1,4 +1,5 @@
+MEDIA=/mount/point/of/external/drive
 DIRS="
 /data/dir/that/you/want/to/backup
 /data/dir/that/you/also/want/to/backup/with whitespace/in/path"
-OPTS=-mhe -mx0 -v2g -bd -xr!.* -xr!Desktop.ini -xr!.Thumbs.db -xr!ehthumbs.db -xr!*encryptable -xr!*.zone.identifier
+OPTS="-mhe -mx0 -v2g -bd"
